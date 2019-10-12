@@ -1,0 +1,408 @@
+/************ common styles ************/
+:root {
+    --animationSpeed: 0.2s;
+  }
+  
+  .hamburger-menu {
+    display: inline-block;
+    padding: 3px;
+    width: 29px;
+  }
+  
+  .bars-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+  }
+  
+  .bars-container,
+  .bar {
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: block;
+  }
+  
+  .overlap-container {
+    position: relative;
+    padding: 0 0 0 0;
+    top: -1.3px;
+  }
+  
+  .overlap-container .bar {
+    position: absolute;
+    top: 0;
+  }
+  
+  .bar1,
+  .bar4 {
+    transform-origin: center left;
+    position: relative;
+  }
+  
+  /************ hamburger menu 1 ************/
+  .input-check:checked + label .overlap-container .bar2 {
+    animation: slideOutLeft var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check:checked + label .overlap-container .bar3 {
+    animation: slideOutRight var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check + label .overlap-container .bar2 {
+    animation: slideInLeft var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check + label .overlap-container .bar3 {
+    animation: slideInRight var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check:checked + label .bar1 {
+    animation: crossBar1 var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check + label .bar1 {
+    animation: crossBar1-backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check:checked + label .bar4 {
+    animation: crossBar2 var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check + label .bar4 {
+    animation: crossBar2-backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  @keyframes slideOutLeft {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes crossBar1 {
+    from {
+      transform: rotate(0def) translate(0, 0);
+    }
+    to {
+      transform: rotate(40deg) translate(-1px, 0);
+    }
+  }
+  
+  @keyframes crossBar1-backward {
+    from {
+      transform: rotate(40deg) translate(-1px, 0);
+    }
+    to {
+      transform: rotate(0deg) translate(0, 0);
+    }
+  }
+  
+  @keyframes crossBar2 {
+    from {
+      transform: rotate(0def) translate(0, 0);
+    }
+    to {
+      transform: rotate(-40deg) translate(-1px, 0);
+    }
+  }
+  
+  @keyframes crossBar2-backward {
+    from {
+      transform: rotate(-40deg) translate(-1px, 0);
+    }
+    to {
+      transform: rotate(0deg) translate(0, 0);
+    }
+  }
+  
+  /*************** hamburger menu 2 *****************/
+  .bars-container2 {
+    position: relative;
+    height: 25px;
+    margin-top: 20px;
+    padding: 0px;
+  }
+  
+  .bars-container2 .bar {
+    position: absolute;
+    transform-origin: center;
+  }
+  
+  .bars-container2 .bar1 {
+    top: 5%;
+  }
+  
+  .bars-container2 .bar2 {
+    top: 50%;
+    transition: opacity 0.4s ease;
+  }
+  
+  .bars-container .bar3 {
+    top: 95%;
+  }
+  
+  .input-check2:checked + label .bar1 {
+    animation: moveDown var(--animationSpeed) ease 0s 1 forwards,
+      makeCross1 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+  }
+  
+  .input-check2 + label .bar1 {
+    animation: makeCross1Backward var(--animationSpeed) ease 0s 1 forwards,
+      moveDownBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+  }
+  
+  .input-check2:checked + label .bar2 {
+    opacity: 0;
+  }
+  
+  .input-check2:checked + label .bar3 {
+    animation: moveUp var(--animationSpeed) ease 0s 1 forwards,
+      makeCross2 var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+  }
+  
+  .input-check2 + label .bar3 {
+    animation: makeCross2Backward var(--animationSpeed) ease 0s 1 forwards,
+      moveUpBackward var(--animationSpeed) ease var(--animationSpeed) 1 forwards;
+  }
+  
+  @keyframes moveDown {
+    from {
+      top: 5%;
+      transform: translateY(0);
+    }
+    to {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  @keyframes moveDownBackward {
+    from {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    to {
+      top: 5%;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes moveUp {
+    from {
+      top: 95%;
+      transform: translateY(0);
+    }
+    to {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  @keyframes moveUpBackward {
+    from {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    to {
+      top: 95%;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes makeCross1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(40deg);
+    }
+  }
+  
+  @keyframes makeCross1Backward {
+    from {
+      top: 50%;
+      transform: rotate(40deg) translateY(-50%);
+    }
+    to {
+      top: 50%;
+      transform: rotate(0deg) translateY(-50%);
+    }
+  }
+  
+  @keyframes makeCross2 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-40deg);
+    }
+  }
+  
+  @keyframes makeCross2Backward {
+    from {
+      top: 50%;
+      transform: rotate(-40deg) translateY(-50%);
+    }
+    to {
+      top: 50%;
+      transform: rotate(0deg) translateY(-50%);
+    }
+  }
+  
+  /*************** hamburger menu 3 *****************/
+  .input-check3:checked + label .bar1 {
+    animation: slideOutLeft3 var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3 + label .bar1 {
+    animation: slideInLeft3Backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3:checked + label .bar2 {
+    animation: crossBar2Three var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3 + label .bar2 {
+    animation: crossBar2Three-backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3:checked + label .bar3 {
+    animation: crossBar3Three var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3 + label .bar3 {
+    animation: crossBar3Three-backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3:checked + label .bar4 {
+    animation: slideOutRight3 var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  .input-check3 + label .bar4 {
+    animation: slideInRight3Backward var(--animationSpeed) ease 0s 1 forwards;
+  }
+  
+  @keyframes slideOutLeft3 {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideOutRight3 {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideInLeft3Backward {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight3Backward {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes crossBar2Three {
+    from {
+      transform: rotate(0def);
+    }
+    to {
+      transform: rotate(40deg);
+    }
+  }
+  
+  @keyframes crossBar2Three-backward {
+    from {
+      transform: rotate(40deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
+  @keyframes crossBar3Three {
+    from {
+      transform: rotate(0def);
+    }
+    to {
+      transform: rotate(-40deg);
+    }
+  }
+  
+  @keyframes crossBar3Three-backward {
+    from {
+      transform: rotate(-40deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
